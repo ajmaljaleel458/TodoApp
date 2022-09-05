@@ -1,0 +1,9 @@
+.ToDoApp {
+    width: 800px;
+    height: 500px;
+    /* background-color: #010409; */
+    display: grid;
+    grid-template: 1fr / 4fr 6fr;
+    border: 1px solid #21262d;
+    border-radius: 6px;
+}

@@ -1,0 +1,21 @@
+.user-details {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #010409;
+    border-right: 1px solid #21262d;
+    margin-right: 10px;
+}
+
+.user-name {
+    color: rgba(197, 197, 197, 0.692);
+    display: flex;
+    align-items: center;
+}

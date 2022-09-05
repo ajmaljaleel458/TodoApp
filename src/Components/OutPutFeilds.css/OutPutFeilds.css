@@ -1,0 +1,136 @@
+.Out-put-holder {
+  background-color: #010409;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  overflow-x: hidden;
+}
+
+.Out-put-holder::-webkit-scrollbar {
+  display: none;
+}
+
+.todo {
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  background-color: #0d1117;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  display: grid;
+  grid-template: auto auto / 1fr;
+  grid-gap: 5px;
+}
+
+.header-section {
+  padding: 5px;
+  min-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  width: 300px;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.679);
+}
+
+.menu-holder {
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.menu-btns {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: rgba(159, 150, 150, 0.679);
+}
+
+.menu-btns:hover {
+  color: rgba(197, 197, 197, 0.909);
+}
+
+.fa-solid {
+  font-size: 18px;
+}
+
+.body-section {
+  font-size: 15px;
+  padding: 5px;
+  color: rgba(197, 197, 197, 0.692);
+}
+
+.submiteddate-text {
+  font-size: 10px;
+  position: relative;
+  margin-top: 4px;
+  color: rgba(197, 197, 197, 0.692);
+}
+
+.fa-trash-can:hover {
+  color: rgba(163, 8, 8, 0.841);
+}
+
+.exit-btn {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+}
+
+.remove-btn-true {
+  font-size: 20px;
+  margin-top: 0px;
+  color: rgba(163, 8, 8, 0.841);
+}
+.remove-btn-true:hover {
+  color: rgba(17, 255, 0, 0.692);
+}
+.remove-btn-false {
+  font-size: 20px;
+  margin-top: 0px;
+  color: rgba(197, 197, 197, 0.536);
+}
+
+.remove-btn-false:hover {
+  color: rgba(23, 195, 11, 0.647);
+}
+
+.fa-star {
+  color: rgba(197, 197, 197, 0.692);
+}
+.fa-star:hover {
+  color: rgba(17, 255, 0, 0.692);
+}
+
+.active-start {
+  color: gold;
+}
+
+.active-start:hover {
+  color: rgba(197, 197, 197, 0.692);
+}
+
+
+.non-active-start:hover {
+  color: gold;
+}
+
+.date-holder {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
