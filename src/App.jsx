@@ -42,8 +42,11 @@ export class App extends Component {
     };
     this.GetDataFromInputFeilds = this.GetDataFromInputFeilds.bind(this);
     this.RemoveTodoHandler = this.RemoveTodoHandler.bind(this);
-    this.ImportantBtnVisibilityToggler = this.ImportantBtnVisibilityToggler.bind(this);
+    this.ImportantBtnVisibilityToggler =
+      this.ImportantBtnVisibilityToggler.bind(this);
     this.EditBtnToggleHandler = this.EditBtnToggleHandler.bind(this);
+    this.TitleEditHangler = this.TitleEditHangler.bind(this);
+    this.DiscriptionEditHangler = this.DiscriptionEditHangler.bind(this);
   }
   GetDataFromInputFeilds = (TodoData) => {
     this.setState({ TodoStack: [...this.state.TodoStack, TodoData] });
@@ -75,13 +78,52 @@ export class App extends Component {
   };
 
   EditBtnToggleHandler = (value, ID) => {
-      const { TodoStack } = this.state;
+    const { TodoStack } = this.state;
+    for (let i = 0; i < TodoStack.length; i++) {
+      if (TodoStack[i].Editable === true) {
+        this.setState((prevState) => ({
+          [prevState.TodoStack]: [
+            ...TodoStack,
+            (TodoStack[i].Editable = false),
+          ],
+        }));
+      }
+    }
     for (let i = 0; i < TodoStack.length; i++) {
       if (ID === TodoStack[i].ID) {
         this.setState((prevState) => ({
           [prevState.TodoStack]: [
             ...TodoStack,
             (TodoStack[i].Editable = value),
+          ],
+        }));
+        return;
+      }
+    }
+  };
+
+  TitleEditHangler = (TitleValue, FeildID) => {
+    const { TodoStack } = this.state;
+    for (let i = 0; i < TodoStack.length; i++) {
+      if (FeildID === TodoStack[i].ID) {
+        this.setState((prevState) => ({
+          [prevState.TodoStack]: [
+            ...TodoStack,
+            (TodoStack[i].Title = TitleValue),
+          ],
+        }));
+        return;
+      }
+    }
+  };
+  DiscriptionEditHangler = (DiscrValue, FeildID) => {
+    const { TodoStack } = this.state;
+    for (let i = 0; i < TodoStack.length; i++) {
+      if (FeildID === TodoStack[i].ID) {
+        this.setState((prevState) => ({
+          [prevState.TodoStack]: [
+            ...TodoStack,
+            (TodoStack[i].Discription = DiscrValue),
           ],
         }));
         return;
@@ -95,6 +137,8 @@ export class App extends Component {
       RemoveTodoHandler,
       ImportantBtnVisibilityToggler,
       EditBtnToggleHandler,
+      TitleEditHangler,
+      DiscriptionEditHangler,
     } = this;
     return (
       <div className="ToDoApp">
@@ -104,6 +148,8 @@ export class App extends Component {
           TodoRemover={RemoveTodoHandler}
           VisibilityToggler={ImportantBtnVisibilityToggler}
           EditToggler={EditBtnToggleHandler}
+          TitleEditHangler={TitleEditHangler}
+          DiscriptionEditHangler={DiscriptionEditHangler}
         ></OutPutFeilds>
       </div>
     );

@@ -3,7 +3,14 @@ import "./OutPutFeilds.css";
 
 export class OutPutFeilds extends Component {
   render() {
-    const { TodoRemover, VisibilityToggler, EditToggler } = this.props;
+    const {
+      TodoRemover,
+      VisibilityToggler,
+      EditToggler,
+      TitleEditHangler,
+      DiscriptionEditHangler,
+    } = this.props;
+
     return (
       <div className="Out-put-holder">
         {this.props.TodoStack.map((Todo) => {
@@ -12,13 +19,19 @@ export class OutPutFeilds extends Component {
           return (
             <div className="todo" key={ID}>
               <div className="header-section">
-                <p
-                  className="title"
-                  suppressContentEditableWarning="false"
-                  contentEditable={Editable}
-                >
-                  {Title}
-                </p>
+                {Editable ? (
+                  <input
+                    value={Title}
+                    minLength="10"
+                    required={true}
+                    onChange={(event) =>
+                      TitleEditHangler(event.target.value, ID)
+                    }
+                    className="title-feild-editor"
+                  ></input>
+                ) : (
+                  <p className="title">{Title}</p>
+                )}
                 <div className="menu-holder">
                   <button
                     className="menu-btns"
@@ -50,13 +63,26 @@ export class OutPutFeilds extends Component {
                   </button>
                 </div>
               </div>
-              <div className="body-section">
-                <p
-                  contentEditable={Editable}
-                  suppressContentEditableWarning="false"
-                >
-                  {Discription}
-                </p>
+              <div
+                className={
+                  Editable ? "body-section-for-editor" : "body-section"
+                }
+              >
+                {Editable ? (
+                  <textarea
+                    minLength="20"
+                    value={Discription}
+                    required={true}
+                    onChange={(event) =>
+                      DiscriptionEditHangler(event.target.value, ID)
+                    }
+                    className="text-area-editor"
+                  ></textarea>
+                ) : (
+                  <p className="paragraph" spellCheck="false">
+                    {Discription}
+                  </p>
+                )}
               </div>
               <div className="date-holder">
                 <p className="submiteddate-text">{SubmitedDate}</p>
